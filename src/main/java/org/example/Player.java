@@ -20,4 +20,8 @@ public class Player {
     public void addPoints(int points) {
         this.score += points;
     }
+
+    public void resetScore() {
+        score = 0; // Reset del punteggio
+    }
 }
