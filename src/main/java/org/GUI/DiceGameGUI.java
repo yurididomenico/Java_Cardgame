@@ -11,6 +11,7 @@ import org.example.Player;
 
 public class DiceGameGUI extends Application {
     private Label resultLabel;
+    private Button rollButton;
     private Player player1;
     private Player player2;
     private Dice dice;
@@ -28,19 +29,19 @@ public class DiceGameGUI extends Application {
 
         // GUI: Elementi
         resultLabel = new Label("Premi 'Lancia i Dadi' per iniziare");
-        Button rollButton = new Button("Lancia i Dadi");
+        rollButton = new Button("Lancia i Dadi");
         rollButton.setOnAction(e -> playRound());
 
         // GUI: Layout
         VBox layout = new VBox(10);
         layout.getChildren().addAll(resultLabel, rollButton);
-        layout.setStyle("-fx-background-color: #f0f0f0;");
+        layout.setStyle("-fx-background-color: #f0f0f0;"); // Sfondo grigio chiaro
 
-        // Style
-        rollButton.setStyle("-fx-background-color: #007bff; -fx-text-fill: white;");
-        resultLabel.setStyle("-fx-text-fill: #2e2e2e;");
+        // Aggiunta di stili CSS
+        rollButton.setStyle("-fx-background-color: #007bff; -fx-text-fill: white;"); // Pulsante blu
+        resultLabel.setStyle("-fx-text-fill: #2e2e2e;"); // Testo grigio scuro
 
-        // Scene
+        // Scene e palcoscenico
         Scene scene = new Scene(layout, 600, 500);
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         primaryStage.setTitle("Gioco di Dadi");
@@ -85,32 +86,26 @@ public class DiceGameGUI extends Application {
                 player1.getName() + ": " + player1.getScore() + "\n" +
                 player2.getName() + ": " + player2.getScore() + "\n" +
                 winner);
+
+        // Cambia il testo del pulsante in "Rigioca"
+        rollButton.setText("Rigioca");
+        rollButton.setOnAction(e -> resetGame());
+    }
+
+    private void resetGame() {
+        // Ripristina i valori
+        player1 = new Player("Ludovica");
+        player2 = new Player("Yuri");
+        dice = new Dice();
+        round = 1;
+
+        // Ripristina l'interfaccia
+        resultLabel.setText("Premi 'Lancia i Dadi' per iniziare");
+        rollButton.setText("Lancia i Dadi");
+        rollButton.setOnAction(e -> playRound());
     }
 
     public static void main(String[] args) {
         launch(args);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
