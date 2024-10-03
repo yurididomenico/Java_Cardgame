@@ -21,6 +21,10 @@ public class Card {
         isMatched = matched;
     }
 
+    public String reveal() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return isMatched ? value : "*";
