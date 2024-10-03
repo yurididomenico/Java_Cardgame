@@ -5,7 +5,8 @@ public class Main {
         System.out.println("YDD Games");
         System.out.println("Gioco dei Dadi\n\n");
 
-        Game game = new Game("Ludovica", "Yuri", 3);
+
+        Game game = new Game("Ludovica", "Yuri");
         game.play();
 
     }

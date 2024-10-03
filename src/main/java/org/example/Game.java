@@ -1,6 +1,8 @@
 package org.example;
 
 
+import java.util.Scanner;
+
 import static org.example.Main.cornice;
 import static org.example.Main.pausa;
 
@@ -8,18 +10,21 @@ public class Game {
     private Player player1;
     private Player player2;
     private Dice dice;
-    private int rounds;
 
-    public Game(String player1, String player2, int rounds) {
+    public Game(String player1, String player2) {
         this.player1 = new Player(player1);
         this.player2 = new Player(player2);
         dice = new Dice();
-        this.rounds = rounds;
     }
 
     public void play() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Quanti round vuoi giocare?");
+        int rounds = scanner.nextInt();
+        pausa(1);
+
         for (int i = 1; i <= rounds; i++) {
-            pausa(4);
 
             System.out.println(cornice("Turno " + i));
 
@@ -32,9 +37,11 @@ public class Game {
             player2.addPoints(roll2);
 
             System.out.println();
+
+            pausa(4);
         }
 
-        pausa(5);
+        pausa(1);
 
         System.out.println(cornice("Punteggio finale."));
         System.out.println(player1.getName() + ": " + player1.getScore());
