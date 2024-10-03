@@ -1,0 +1,19 @@
+.root {
+    -fx-background-color: #f0f0f0; /* Sfondo grigio chiaro */
+}
+
+.label {
+    -fx-text-fill: #2e2e2e; /* Colore del testo grigio scuro */
+    -fx-font-size: 16px; /* Dimensione del font */
+}
+
+.button {
+    -fx-background-color: #007bff; /* Blu */
+    -fx-text-fill: white; /* Testo bianco */
+    -fx-font-size: 14px; /* Dimensione del font */
+    -fx-padding: 10px; /* Padding interno */
+}
+
+.button:hover {
+    -fx-background-color: #0056b3; /* Blu scuro al passaggio del mouse */
+}
